@@ -1,6 +1,105 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container-fluid">
-    
+{% include 'navbar.html' %}
+<div class="container-fluid" id="profile">
+    <div class="row" id="top">
+        <div class="col-sm-1 col-md-2" style="margin-top: 7%;">
+            <p>FOLLOWING</p>
+            <p>100</p>
+        </div>
+        <div class="col-sm-1 col-md-2" style="margin-top: 7%;">
+            <p>FOLLOWERS</p>
+            <p>90</p>
+        </div>
+        <div class="col-sm-2 col-md-4">
+            <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="profilepic" class="img-fluid">
+            <h3 style="margin-top:7%;letter-spacing:5px;font:bold;font-size: 50px;">Jojo</h3>
+        </div>
+        <div class="col-sm-1 col-md-2" style="margin-top: 7%;">
+            <button type="button" class="btn-lg btn-outline-success">FOLLOW</button>
+        </div>
+        <div class="col-sm-1 col-md-2" style="margin-top: 7%;">
+            <button type="button" class="btn-lg btn-outline-info">MESSAGE</button>
+        </div>
+    </div>
+    <div style="margin-top:1%;">
+        <p>This is my beautiful bio where I can write stuff.</p>
+    </div>
+    <div class="row" id="stories">
+        <div class="col-sm-2 col-md-3">
+            <div id="story">
+            </div>
+            <h4 style="margin-top:5%;font:bold;font-size: 20px;">Jojo</h4>
+        </div>
+        <div class="col-sm-2 col-md-3">
+            <div id="story">
+            </div>
+            <h4 style="margin-top:5%;font:bold;font-size: 20px;">Jojo</h4>
+        </div>
+        <div class="col-sm-2 col-md-3">
+            <div id="story">
+            </div>
+            <h4 style="margin-top:5%;font:bold;font-size: 20px;">Jojo</h4>
+        </div>
+    </div>
+    <div class="nav navbar-nav" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div>
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </div>
+            </div>
+            <div class="nav navbar-nav navbar-right">
+                <ul class="nav" id="mynav">
+                    <li class="nav-item" id="first">
+                        <i class="fab fa-instagram"></i>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/timeline">
+                            <i class="fas fa-th"></i> Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-hashtag"></i>
+                            Tags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/profile">
+                            <i class="fas fa-cog"></i> Edit Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-bookmark"></i> Saved</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="parent">
+            <div id="child">
+                <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
+            </div>
+            <div id="child">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
+            </div>
+            <div id="child">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
+            </div>
+            <div id="child">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
+            </div>
+            <div id="child">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
+            </div>
+            <div id="child">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
+            </div>
+            <div id="child">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
+            </div>
+        </div>
 </div>
 {% endblock %}
