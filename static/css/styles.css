@@ -19,12 +19,6 @@ body {
 
 }
 
-.card {
-    background-color: black;
-    border: solid 1px gray;
-    border-radius: 3%;
-}
-
 #logo {
     font-family: 'Pacifico', cursive;
     font-size:30px;
@@ -156,4 +150,72 @@ a:hover{
     display: inline-block;
     box-sizing: border-box;
     color: black;
+}
+
+#timeline {
+    margin-top: 5%;
+}
+
+#others {
+    margin-left: 10%;
+}
+
+#suggestions {
+    margin-top: 5%;
+    padding:2%;
+    border: solid 1px #007991;
+}
+
+#suggestion {
+    margin:1%;
+}
+
+#profilepic2 {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+#othersposts {
+    margin-left: 35%
+}
+
+#cardpost {
+    border: solid 1px #007991;
+    margin: 1%;
+    margin-bottom: 5%;
+}
+
+#heart2{
+    margin-right: 1%;
+}
+
+#heart2:hover{
+    color:red;
+}
+
+#comment{
+    margin-right: 1%;
+}
+
+#comment:hover{
+    color: #78ffd6;
+}
+
+#ellipsis{
+    margin-right: 1%;
+}
+
+#ellipsis:hover{
+    color:#007991;
+}
+
+a {
+    padding: 3%;
+}
+
+#profilepic3 {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }

@@ -1,7 +1,101 @@
 {% extends 'base.html' %}
 {% block content %}
 {% include 'navbar.html' %}
-<div class="container-fluid" id="timeline">
-    
-</div>
-{% endblock %}
+<div class="container">
+    <div class="row" id="timeline">
+        <div class="col-md-3 col-sm-3" style="position: fixed;">
+            <div class="row" id="others">
+                <div class="col-md-5 col-sm-5">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" class="img-fluid"
+                        id="profilepic2">
+                </div>
+                <div class="col-md-7 col-sm-7">
+                    <h4 style="margin-top:7%;letter-spacing:5px;font:bold;font-size: 30px;">jojo</h4>
+                    <h6 style="color:gray;">Jojo Jamal</h6>
+                </div>
+            </div>
+            <div class="row" id="suggestions">
+                <div class="col-md-10 col-sm-10">
+                    <h5 style="color:gray;">Suggestions</h5>
+                    <div class="row" id="suggestion">
+                        <div class="col-md-5 col-sm-3">
+                            <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" class="img-fluid"
+                                id="profilepic2">
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <h4 style="margin-top:7%;letter-spacing:5px;font:bold;font-size: 30px;">jojo</h4>
+                            <h6 style="color:gray;">Jojo Jamal</h6>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <button type="button" class="btn btn-outline-success"
+                                style="margin-top:40%;">Follow</button>
+                        </div>
+                    </div>
+                    <div class="row" id="suggestion">
+                        <div class="col-md-5 col-sm-3">
+                            <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" class="img-fluid"
+                                id="profilepic2">
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <h4 style="margin-top:7%;letter-spacing:5px;font:bold;font-size: 30px;">jojo</h4>
+                            <h6 style="color:gray;">Jojo Jamal</h6>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <button type="button" class="btn btn-outline-success"
+                                style="margin-top:40%;">Follow</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 5%;">
+                <p style="color:grey;font-size: 12px;padding-left:40%;">created by Esther Muigai. Inspiration:Instagram</p>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-8" id="othersposts">
+            <div class="row" id="cardpost">
+                <div class="col-md-6 col-sm-6" style="padding: 0%;">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" class="img-fluid">
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="row" style=" padding:2%;">
+                        <div class="col-md-4 col-sm-4">
+                            <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" class="img-fluid"
+                                id="profilepic3">
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <h5 style="letter-spacing:5px;font:bold;font-size:20px;">@jojo</h5>
+                            <h6 style="color:gray;">Jojo Jamal</h6>
+                        </div>
+                        <div class="col-sm-3 col-md-3">
+                            <a href="" id="heart2"><i class="fas fa-heart"></i></a>
+                            <a href="" id="comment"><i class="fas fa-comment"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="cardpost">
+                    <div class="col-md-6 col-sm-6" style="padding: 0%;">
+                        <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row" style=" padding:2%;">
+                            <div class="col-md-4 col-sm-4">
+                                <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" class="img-fluid"
+                                    id="profilepic3">
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <h5 style="letter-spacing:5px;font:bold;font-size:20px;">@jojo</h5>
+                                <h6 style="color:gray;">Jojo Jamal</h6>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <a href="" id="heart2"><i  class="fas fa-heart"></i></a>
+                                <a href="" id="comment"><i  class="fas fa-comment"></i></a>
+                                <a href="" id="ellipsis"><i class="fas fa-ellipsis-h"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </id>
+    </div>
+    {% endblock %}

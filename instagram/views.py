@@ -8,4 +8,4 @@ def profile(request):
     return render(request, 'profile.html')
 
 def timeline(request):
-    return render(request, 'timelinee.html')
+    return render(request, 'timeline.html')
