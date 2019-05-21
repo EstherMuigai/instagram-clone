@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'instagram',
+    'bootstrap3',
     'bootstrap4',
 ]
 
