@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container-fluid" id="profile">
+    <div class="row" id="top">
+        <div class="col-sm-2 col-md-4" style="margin-top: 7%;">
+        </div>
+        <div class="col-sm-3 col-md-5">
+            <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="profilepic" class="img-fluid">
+                <form  action="{%url 'edit'%}" method="post" enctype="multipart/form-data">
+                  {%csrf_token%}
+              
+                  {% bootstrap_form form layout='inline'%}
+                  <input type="submit" class="btn-lg btn-outline-info" value="Update">
+                </form>
+        </div>
+        <div class="col-sm-1 col-md-2" >
+            
+        </div>
+    </div>
+    <div class="nav navbar-nav" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div>
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </div>
+            </div>
+            <div class="nav navbar-nav navbar-right">
+                <ul class="nav" id="mynav">
+                    <li class="nav-item" id="first">
+                        <i class="fab fa-instagram"></i>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/timeline">
+                            <i class="fas fa-th"></i> Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-hashtag"></i>
+                            Tags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/profile">
+                            <i class="fas fa-cog"></i> Edit Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-bookmark"></i> Saved</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

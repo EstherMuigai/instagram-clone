@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'registration/base.html' %}
 {% block content %}
-<div class="container-fluid">
+<div class="wrapper" style="background-color:rgb(0,0,0,0.7);">
     <div class="row" id="main">
         <div class="col-sm-6 col-md-6">
             <div id="demo">
@@ -15,7 +15,14 @@
             <div class="card w-75" id="login">
                 <div class="card-body">
                     <h4 class="card-title" id="logo">InstagramNight</h4>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div class="row">
+                        <div class="col-sm-1 col-md-1" style="margin-top: 7%;">
+                        </div>
+                        <div class="col-sm-10 col-md-10" style="margin-top: 7%;">
+                                <a href="/accounts/login" class="btn btn-outline-info">Log In</a>
+                            <h5 style="margin-top:10%;">Don't have an account? <a href="/accounts/register" style="color:hotpink;">Sign up</a></h5>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row" id="buybutton">
