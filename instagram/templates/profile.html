@@ -90,9 +90,14 @@
     </div>
     <div class="row" id="parent">
             <div id="child">
-                <a href="" id="post">
-                    <i class="fas fa-images" style="color:#78ffd6;font-size:40px;margin-top: 30%;"></i>
-                </a>
+                <div id="post">
+                    <form  action="{%url 'profile' %}" method="post" enctype="multipart/form-data" style="margin-top:10%;color: white;">
+                        {% csrf_token %}
+                    
+                        {% bootstrap_form form1 layout='inline'%}
+                        <input type="submit" class="btn-lg btn-outline-info" value="New Post">
+                    </form>
+                </div>
             </div>
             <div id="child">
                     <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
