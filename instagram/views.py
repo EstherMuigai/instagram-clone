@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .models import Profile,Post
 from .forms import DetailsForm,PostForm
 
@@ -34,7 +35,8 @@ def profile(request):
 
 @login_required(login_url='/accounts/login/')
 def timeline(request):
-    return render(request, 'timeline.html')
+    users = User.objects.all()
+    return render(request, 'timeline.html',{"users":users})
 
 @login_required(login_url='/accounts/login/')
 def edit_profile(request):

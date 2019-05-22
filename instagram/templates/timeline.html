@@ -17,34 +17,21 @@
             <div class="row" id="suggestions">
                 <div class="col-md-10 col-sm-10">
                     <h5 style="color:gray;">Suggestions</h5>
+                    {% for user in users %}
                     <div class="row" id="suggestion">
                         <div class="col-md-5 col-sm-3">
-                            <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" class="img-fluid"
+                            <img src="{{user.profile.profile_pic.url}}" alt="" class="img-fluid"
                                 id="profilepic2">
                         </div>
                         <div class="col-md-4 col-sm-6">
-                            <h4 style="margin-top:7%;letter-spacing:5px;font:bold;font-size: 30px;">jojo</h4>
-                            <h6 style="color:gray;">Jojo Jamal</h6>
+                            <h6 style="margin-top:7%;letter-spacing:5px;font:bold;font-size: 30px;">{{user.username}}</h6>
                         </div>
                         <div class="col-md-3 col-sm-3">
                             <button type="button" class="btn btn-outline-success"
                                 style="margin-top:40%;">Follow</button>
                         </div>
                     </div>
-                    <div class="row" id="suggestion">
-                        <div class="col-md-5 col-sm-3">
-                            <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" class="img-fluid"
-                                id="profilepic2">
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <h4 style="margin-top:7%;letter-spacing:5px;font:bold;font-size: 30px;">jojo</h4>
-                            <h6 style="color:gray;">Jojo Jamal</h6>
-                        </div>
-                        <div class="col-md-3 col-sm-3">
-                            <button type="button" class="btn btn-outline-success"
-                                style="margin-top:40%;">Follow</button>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="row" style="margin-top: 5%;">
