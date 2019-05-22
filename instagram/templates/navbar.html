@@ -42,19 +42,12 @@
                             <i class="fas fa-heart"></i>
                         </a>
                     </li>
-                    <li id="icon">
-                        <a href="" class="nav-link">
+                    <li class="dropdown" id="icon">
+                        <a href="" class="nav-link" lass="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">
                             <i class="fas fa-user"></i>
                         </a>
-                    </li>
-                    <li>
                         {% if user.is_authenticated %}
-                        <ul>
-                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
-                                      <span class="caret"></span>
-                                  </a>
-                            <ul class="dropdown-menu" role="menu">
+                            <ul class="dropdown-menu" role="menu" style="background-color:#131413;">
                               <li>
                                 <a href="{%url 'welcome' %}">Home</a>
                               </li>
@@ -65,8 +58,6 @@
                                 <a href="/logout">Logout</a>
                               </li>
                             </ul>
-                          </li>
-                        </ul>
                         {% else %}
                         <li>
                           <a class='btn btn-default' href="/accounts/login">Login</a>

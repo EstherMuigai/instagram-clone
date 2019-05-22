@@ -7,8 +7,12 @@
         <div class="col-sm-2 col-md-4" style="margin-top: 7%;">
         </div>
         <div class="col-sm-3 col-md-5">
-            <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="profilepic" class="img-fluid">
-                <form  action="{%url 'edit'%}" method="post" enctype="multipart/form-data">
+            {% for profile in profiles %}
+                
+            <img src="{{profile.profile_pic.url}}" alt="" id="profilepic" class="img-fluid">
+                
+            {% endfor %}
+            <form  action="{%url 'edit'%}" method="post" enctype="multipart/form-data" style="margin-top:10%;">
                   {%csrf_token%}
               
                   {% bootstrap_form form layout='inline'%}

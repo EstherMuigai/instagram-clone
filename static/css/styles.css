@@ -15,10 +15,6 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-#main {
-    margin-top:2%;
-}
-
 #login {
     text-align: center;
     float:left;
@@ -54,8 +50,13 @@ body {
     height:70px;
 }
 
+#main {
+    padding-top:3%;
+}
+
 #buybutton {
     margin-left: 5%;
+    margin-bottom: 20%;
     float: left;
 }
 

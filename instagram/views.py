@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http  import HttpResponse
 from django.contrib.auth.decorators import login_required
+from .models import Profile
 from .forms import DetailsForm
 
 def welcome(request):
@@ -16,6 +17,7 @@ def timeline(request):
 
 @login_required(login_url='/accounts/login/')
 def edit_profile(request):
+    profiles=Profile.objects.all()
     current_user = request.user
     if request.method == 'POST':
         form = DetailsForm(request.POST, request.FILES)
@@ -28,4 +30,4 @@ def edit_profile(request):
     else:
         form = DetailsForm()
     
-    return render(request, 'edit_profile.html',{"form": form})
+    return render(request, 'edit_profile.html',{"form": form, "profiles":profiles})
