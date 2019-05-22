@@ -7,20 +7,16 @@
         <div class="col-sm-2 col-md-4" style="margin-top: 7%;">
         </div>
         <div class="col-sm-3 col-md-5">
-            {% for profile in profiles %}
-                
-            <img src="{{profile.profile_pic.url}}" alt="" id="profilepic" class="img-fluid">
-                
-            {% endfor %}
+            <img src="{{user.profile.profile_pic.url}}" alt="" id="profilepic" class="img-fluid">
             <form  action="{%url 'edit'%}" method="post" enctype="multipart/form-data" style="margin-top:10%;">
-                  {%csrf_token%}
+                  {% csrf_token %}
               
                   {% bootstrap_form form layout='inline'%}
                   <input type="submit" class="btn-lg btn-outline-info" value="Update">
-                </form>
-        </div>
-        <div class="col-sm-1 col-md-2" >
-            
+            </form>
+            <div style="margin-top:1%;">
+                <p>{{user.profile.bio}}</p>
+            </div>
         </div>
     </div>
     <div class="nav navbar-nav" role="navigation">

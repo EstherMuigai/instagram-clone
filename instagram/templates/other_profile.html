@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load bootstrap3 %}
 {% block content %}
 {% include 'navbar.html' %}
 <div class="container-fluid" id="profile">
@@ -13,17 +12,8 @@
             <p>90</p>
         </div>
         <div class="col-sm-2 col-md-4">
-            {% if user.profile.profile_pic.url %}
-            <img src="/media/images/{{user.profile.profile_pic}}" alt="" id="profilepic" class="img-fluid">
-            {% else %}
-            <form  action="{%url 'profile' %}" method="post" enctype="multipart/form-data" style="margin-top:10%;">
-                {% csrf_token %}
-            
-                {% bootstrap_form form layout='inline'%}
-                <input type="submit" class="btn-lg btn-outline-info" value="Add Profile">
-            </form>
-            {% endif %}
-            <h3 style="margin-top:7%;letter-spacing:5px;font:bold;font-size: 50px;">@{{user.username}}</h3>
+            <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="profilepic" class="img-fluid">
+            <h3 style="margin-top:7%;letter-spacing:5px;font:bold;font-size: 50px;">Jojo</h3>
         </div>
         <div class="col-sm-1 col-md-2" style="margin-top: 7%;">
             <button type="button" class="btn-lg btn-outline-success">FOLLOW</button>
@@ -33,7 +23,7 @@
         </div>
     </div>
     <div style="margin-top:1%;">
-        <p>{{user.profile.bio}}</p>
+        <p>This is my beautiful bio where I can write stuff.</p>
     </div>
     <div class="row" id="stories">
         <div class="col-sm-2 col-md-3">
@@ -90,9 +80,22 @@
     </div>
     <div class="row" id="parent">
             <div id="child">
-                <a href="" id="post">
-                    <i class="fas fa-images" style="color:#78ffd6;font-size:40px;margin-top: 30%;"></i>
-                </a>
+                <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
+            </div>
+            <div id="child">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
+            </div>
+            <div id="child">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
+            </div>
+            <div id="child">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
+            </div>
+            <div id="child">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
+            </div>
+            <div id="child">
+                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
             </div>
             <div id="child">
                     <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
