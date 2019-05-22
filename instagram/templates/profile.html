@@ -99,9 +99,13 @@
                     </form>
                 </div>
             </div>
-            <div id="child">
-                    <img src="https://jagmodels.com/uploads/2017/12/aaron52086.jpg" alt="" id="post" class="img-fluid">
-            </div>
+            {% for post in posts %}
+                {% if user.profile.id == post.profile.id %}
+                <div id="child">
+                    <img src="{{post.pic.url}}" alt="" id="post" class="img-fluid">
+                </div>
+                {% endif %}
+            {% endfor %}
         </div>
 </div>
 {% endblock %}

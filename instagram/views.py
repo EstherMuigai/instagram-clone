@@ -9,6 +9,7 @@ def welcome(request):
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
+    posts=Post.objects.all()
     current_user = request.user
     if request.method == 'POST':
         form = DetailsForm(request.POST, request.FILES)
@@ -29,7 +30,7 @@ def profile(request):
         form = DetailsForm()
         form1 = PostForm()
     
-    return render(request, 'profile.html', {"form":form,"form1":form1})
+    return render(request, 'profile.html', {"form":form,"form1":form1,"posts":posts})
 
 @login_required(login_url='/accounts/login/')
 def timeline(request):
