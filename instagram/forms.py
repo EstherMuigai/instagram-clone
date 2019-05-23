@@ -9,6 +9,6 @@ class DetailsForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = ['profile','date']
+        exclude = ['profile','date','like']
 
        

@@ -3,7 +3,7 @@
 {% include 'navbar.html' %}
 <div class="container">
     <div class="row" id="timeline">
-        <div class="col-md-3 col-sm-3" style="position: fixed;">
+        <div class="col-md-3 col-sm-3">
             <div class="row" id="others">
                 <div class="col-md-5 col-sm-5">
                     <img src="{{user.profile.profile_pic.url}}" alt="" class="img-fluid" id="profilepic2">
@@ -14,29 +14,57 @@
             </div>
             <div class="row" id="suggestions">
                 <div class="col-md-10 col-sm-10">
-                    <h5 style="color:gray;">Suggestions</h5>
-                    {% for each_user in users %}
-                    {% if each_user.username != user.username %}
-                    <div class="row" id="suggestion">
-                        <div class="col-md-5 col-sm-3">
-                            <img src="{{each_user.profile.profile_pic.url}}" alt="" class="img-fluid" id="profilepic2">
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <h6 style="margin-top:7%;font:bold;font-size: 15px;">{{each_user.username}}</h6>
-                        </div>
-                        <div class="col-md-3 col-sm-3">
-                            <form action="{%url 'timeline' %}" method="post">
-                                {% csrf_token %}
-                                <input type="hidden" name="follow" value="{{each_user.username}}">
-                                <input type="submit" class="btn btn-outline-success" style="margin-top:40%;"
-                                    value="Follow"></input>
-                            </form>
-                        </div>
-                    </div>
-                    {% endif %}
+                    <h5 style="color:gray;">Following</h5>
+                    {% for follow in follows %}
+                    {% if follow.followed == user.username %}
+                        <div class="row" id="suggestion">
+                                <div class="col-md-5 col-sm-3">
+                                    {% for x in users %}
+                                     {% if x.username == follow.username %}
+                                     <img src="{{x.profile.profile_pic.url}}" alt="" class="img-fluid" id="profilepic2">
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <h6 style="margin-top:50%;font:bold;font-size: 15px;">@{{follow.username}}</h6>
+                                </div>
+                                <div class="col-md-3 col-sm-3">
+                                        <form action="/profile/{{x.id}}" method="post">
+                                                {% csrf_token %}
+                                                <input type="submit" class="btn btn-outline-success" style="margin-top:40%;"
+                                                    value="Visit Profile"></input>
+                                        </form>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
+            <div class="row" id="suggestions">
+                    <div class="col-md-10 col-sm-10">
+                        <h5 style="color:gray;">Suggestions</h5>
+                        {% for each_user in users %}
+                        {% if each_user.username != user.username %}
+                            <div class="row" id="suggestion">
+                                    <div class="col-md-5 col-sm-3">
+                                        <img src="{{each_user.profile.profile_pic.url}}" alt="" class="img-fluid" id="profilepic2">
+                                    </div>
+                                    <div class="col-md-4 col-sm-6">
+                                        <h6 style="margin-top:50%;font:bold;font-size: 15px;">@{{each_user.username}}</h6>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                            <form action="{%url 'timeline' %}" method="post">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" name="follow" value="{{each_user.username}}">
+                                                    <input type="submit" class="btn btn-outline-success" style="margin-top:40%;"
+                                                        value="Follow"></input>
+                                                </form>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
             <div class="row" style="margin-top: 5%;">
                 <p style="color:grey;font-size: 12px;padding-left:40%;">created by Esther Muigai. Inspiration:Instagram
                 </p>

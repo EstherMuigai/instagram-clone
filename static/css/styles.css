@@ -178,6 +178,7 @@ a:hover{
 
 #suggestion {
     margin:1%;
+    margin-top:3%;
 }
 
 #profilepic2 {
@@ -185,11 +186,6 @@ a:hover{
     width: 70px;
     height: 70px;
 }
-
-#othersposts {
-    margin-left: 35%
-}
-
 #cardpost {
     border: solid 1px #007991;
     margin: 1%;
