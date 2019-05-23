@@ -26,8 +26,9 @@ class Following(models.Model):
         return f'{self.username}'
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post,on_delete=models.CASCADE)
+    post = models.IntegerField(default=0)
+    username = models.CharField(blank=True,max_length = 255)
     comment = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-
+    count = models.IntegerField(default=0)
 

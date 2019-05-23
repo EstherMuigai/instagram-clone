@@ -1,6 +1,12 @@
-# Gallery Project-Photo Album App
+# InstagramClone Project-InstagramNight App
 
-An application where a single django administrator can upload and display images and filter them by their category or location.
+An application where users can:
+*   Sign up
+*   Sign in (authentication)
+*   Upload pictures
+*   Follow other users and see their pictures
+*   Like other users pictures
+*   Comment on other users' pictures
 
 ## Getting Started
 
@@ -42,7 +48,7 @@ And view the site at the port provided which is most likely 127.0.0.1:8000
 To run the automated tests for this system, run the following command
 
 ```
-python3.6 manage.py test album
+python3.6 manage.py test instagram
 ```
 
 ## Deployment
@@ -74,7 +80,7 @@ pip freeze
 
 ## Authors
 
-* **Esther Muigai**  - [cool-gallery](https://github.com/EstherMuigai/cool-gallery)
+* **Esther Muigai**  - [instagram-night](https://github.com/EstherMuigai/instagram-night)
 
 
 ## License
