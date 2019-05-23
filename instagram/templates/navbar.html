@@ -20,16 +20,18 @@
             <div class="nav navbar-nav navbar-left">
                 <ul class="nav">
                     <li style="margin-right:2%;margin-top:1%;">
-                        <i class="fab fa-instagram" style="font-size:30px;"></i>
+                        <a href="{%url 'timeline' %}">
+                            <i class="fab fa-instagram" style="font-size:30px;"></i>
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="logo">InstagramNight</a>
+                        <a href="{%url 'timeline' %}" class="nav-link" id="logo">InstagramNight</a>
                     </li>
                     <li class="nav-item">
-                        <form class="form-inline" style="margin-top:1%;">
-                            <input style="width:300px;background: transparent;" class="form-control" type="search" placeholder="Search"
-                                aria-label="Search">
+                        <form action="{%url 'profileresults' %}" role="search" class="form-inline" style="margin-top:1%;">
+                            <input type="text" style="width:300px;background: transparent;" class="form-control" placeholder="Search by username"
+                                name="username">
                         </form>
                     </li>
                     <li id="icon">

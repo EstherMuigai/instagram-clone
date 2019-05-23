@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% include 'navbar.html' %}
-<div class="container">
+<div class="container-fluid" style="margin-left: 5%;">
     <div class="row" id="timeline">
         <div class="col-md-3 col-sm-3">
             <div class="row" id="others">
@@ -13,78 +13,76 @@
                 </div>
             </div>
             <div class="row" id="suggestions">
-                <div class="col-md-10 col-sm-10">
+                <div class="col-md-11 col-sm-11">
                     <h5 style="color:gray;">Following</h5>
                     {% for follow in follows %}
                     {% if follow.followed == user.username %}
-                        <div class="row" id="suggestion">
-                                <div class="col-md-5 col-sm-3">
-                                    {% for x in users %}
-                                     {% if x.username == follow.username %}
-                                     <img src="{{x.profile.profile_pic.url}}" alt="" class="img-fluid" id="profilepic2">
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <h6 style="margin-top:50%;font:bold;font-size: 15px;">@{{follow.username}}</h6>
-                                </div>
-                                <div class="col-md-3 col-sm-3">
-                                        <form action="/profile/{{x.id}}" method="post">
-                                                {% csrf_token %}
-                                                <input type="submit" class="btn btn-outline-success" style="margin-top:40%;"
-                                                    value="Visit Profile"></input>
-                                        </form>
-                                </div>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
+                    <div class="row" id="suggestion">
+                        <div class="col-md-4 col-sm-3">
+                            {% for x in users %}
+                            {% if x.username == follow.username %}
+                            <img src="{{x.profile.profile_pic.url}}" alt="" class="img-fluid" id="profilepic2">
+                        </div>
+                        <div class="col-md-5 col-sm-6">
+                            <h6 style="margin-top:30%;font:bold;font-size: 15px;">@{{follow.username}}</h6>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <form action="/profile/{{x.id}}" method="post">
+                                {% csrf_token %}
+                                <input type="submit" class="btn btn-outline-success" style="margin-top:40%;"
+                                    value="Visit"></input>
+                            </form>
+                        </div>
                         {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>
             <div class="row" id="suggestions">
-                    <div class="col-md-10 col-sm-10">
-                        <h5 style="color:gray;">Suggestions</h5>
-                        {% for each_user in users %}
-                        {% if each_user.username != user.username %}
-                            <div class="row" id="suggestion">
-                                    <div class="col-md-5 col-sm-3">
-                                        <img src="{{each_user.profile.profile_pic.url}}" alt="" class="img-fluid" id="profilepic2">
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <h6 style="margin-top:50%;font:bold;font-size: 15px;">@{{each_user.username}}</h6>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3">
-                                            <form action="{%url 'timeline' %}" method="post">
-                                                    {% csrf_token %}
-                                                    <input type="hidden" name="follow" value="{{each_user.username}}">
-                                                    <input type="submit" class="btn btn-outline-success" style="margin-top:40%;"
-                                                        value="Follow"></input>
-                                                </form>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
+                <div class="col-md-11 col-sm-11">
+                    <h5 style="color:gray;">Suggestions</h5>
+                    {% for each_user in users %}
+                    {% if each_user.username != user.username %}
+                    <div class="row" id="suggestion">
+                        <div class="col-md-4 col-sm-3">
+                            <img src="{{each_user.profile.profile_pic.url}}" alt="" class="img-fluid" id="profilepic2">
+                        </div>
+                        <div class="col-md-5 col-sm-6">
+                            <h6 style="margin-top:30%;font:bold;font-size: 15px;">@{{each_user.username}}</h6>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <form action="{%url 'timeline' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="follow" value="{{each_user.username}}">
+                                <input type="submit" class="btn btn-outline-success" style="margin-top:40%;"
+                                    value="Follow"></input>
+                            </form>
+                        </div>
                     </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
+            </div>
             <div class="row" style="margin-top: 5%;">
                 <p style="color:grey;font-size: 12px;padding-left:40%;">created by Esther Muigai. Inspiration:Instagram
                 </p>
             </div>
         </div>
-        <div class="col-md-8 col-sm-8" id="othersposts">
+        <div class="col-md-1 col-sm-1"></div>
+        <div class="col-md-7 col-sm-7" id="othersposts">
             {% for follow in follows %}
             {% if follow.followed == user.username %}
             {% for post in posts %}
             {% if post.profile.user.username == follow.username %}
-            <div class="row" id="cardpost">
-                <div class="col-md-6 col-sm-6" style="padding: 0%;">
-                    <img src="{{post.pic.url}}" alt="" class="img-fluid">
-                </div>
-                <div class="col-md-6 col-sm-6">
-                    <div class="row" style="padding:1%;border-bottom:solid 1px #007991;">
+            <div class="card" id="cardpost">
+                <div class="card-header">
+                    <div class="row" style="padding:1%;">
                         <div class="col-md-3 col-sm-3">
                             <img src="{{post.profile.profile_pic.url}}" alt="" class="img-fluid" id="profilepic3">
                         </div>
-                        <div class="col-sm-2 col-md-2">
+                        <div class="col-sm-3 col-md-3">
                             <p style="font-size:15px;">@{{follow.username}}</p>
                         </div>
                         <div class="col-sm-6 col-md-6">
@@ -98,64 +96,76 @@
                                     </form>
                                 </div>
                                 <div class="col-md-4 col-sm-3">
-                                        <button id="comment" class="btn btn-info"><i
-                                                class="fas fa-comment">
-                                           {% for comment in comments %}
-                                             {% if comment.post == post.id %}
-                                                {{comment.count}}
+                                    <button id="comment" class="btn btn-info"><i class="fas fa-comment">
+                                            {% for comment in comments %}
+                                            {% if comment.post == post.id %}
+                                            {{comment.count}}
                                             {% endif %}
                                             {% endfor %}
-                                            </i></button>
+                                        </i></button>
                                 </div>
                                 <div class="col-md-4 col-sm-3">
-                                    <form action="{%url 'timeline' %}" method="post">
-                                        {% csrf_token %}
-                                        <button id="ellipsis" class="btn btn-success"><i
-                                                class="fas fa-ellipsis-h"></i></button>
-                                    </form>
+                                    <button id="ellipsis" class="btn btn-success" data-target="#{{post.id}}"
+                                        data-toggle="modal"><i class="fas fa-ellipsis-h"></i></button>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="card-body" style="padding:0%;">
+                        <img src="{{post.pic.url}}" alt="" class="img-fluid" style="width:100%;margin: 0%;">
                     </div>
                     <div class="row" style="padding:2%;padding-left:5%;color:#007991">
                         <h4><i class="fas fa-feather"></i> {{post.caption}}</h4>
                     </div>
-                    <div class="row" style="width:80%;padding-left:10%;margin-bottom: 3%;">
-                        <form action="{%url 'timeline' %}" method="post">
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="col-md-10 col-sm-10">
-                                    <input type="hidden" name="posted" value="{{post.id}}">
-                                    <input type="hidden" name="user" value="{{user.username}}">
-                                    <input
-                                        style="height:100px;background:transparent;border-radius:5%;color:white;border:solid 1px #007991;margin-bottom: 1%;width:100%"
-                                        id="comment" type="text" name="comment" value="{{comment}}">
+                    <form action="{%url 'timeline' %}" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-10 col-sm-10">
+                                <input type="hidden" name="posted" value="{{post.id}}">
+                                <input type="hidden" name="user" value="{{user.username}}">
+                                <input
+                                    style="height:70px;background:transparent;border-radius:1%;color:white;border:solid 1px #007991;margin-bottom: 1%;width:100%;"
+                                    id="comment" type="text" name="comment" value="{{comment}}">
 
-                                </div>
-                                <div class="col-md-1 col-sm-1">
-                                    <input type="submit" class="btn btn-outline-info" value="comment"
-                                        style="margin-left:10%;margin-top:50px;">
-                                </div>
                             </div>
-                        </form>
-                    </div>
-                    {% for comment in comments %}
-                        {% if comment.post == post.id %}
-                        <div class="container-fluid" style="border-top:solid 1px #007991;">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4">
-                                    <h6>@{{comment.username}}</h6>
-                                </div>
-                                <div class="col-md-8 col-sm-7">
-                                    <h6>{{comment.date}}</h6> 
-                                </div>
-                            </div>
-                            <div class="row" style="padding-left:5%;">
-                                <h5>{{comment.comment}}</h5>
+                            <div class="col-md-1 col-sm-1">
+                                <input type="submit" class="btn btn-outline-info" value="comment"
+                                    style="margin-left:10%;margin-top:15px;">
                             </div>
                         </div>
-                        {% endif %}
-                    {% endfor %}
+                    </form>
+                </div>
+            </div>
+            <div class="modal fade" id="{{post.id}}" tabindex="-2" role="dialog" aria-labelledby="post"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-body" style="width:900px;padding-right:100px;">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-7">
+                                <img src="{{post.pic.url}}" class="img-fluid" style="width:100%;margin: 0%;">
+                            </div>
+                            <div class="col-sm-6 col-md-5" style="background:none;">
+                                {% for comment in comments %}
+                                {% if comment.post == post.id %}
+                                <div class="container-fluid"
+                                    style="border:solid 1px green;background-color:#131413;;border-radius:1%;margin-top:2%;">
+                                    <div class="row" style="padding-left:5%;padding-top:2%;">
+                                        <h5>{{comment.comment}}</h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-4">
+                                            <h6>@{{comment.username}}</h6>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7">
+                                            <h6>{{comment.date}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             {% endif %}
