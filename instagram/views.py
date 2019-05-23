@@ -51,10 +51,8 @@ def timeline(request):
         comment=Comment(comment=request.POST.get("comment"),
                         post=int(request.POST.get("posted")),
                         username=request.POST.get("user"))
-        x=1
-        comment.count+=x
+        comment.count+=1
         comment.save()
-        return redirect('timeline')
     elif request.method=='POST' and 'post' in request.POST:
         posted=request.POST.get("post")
         for post in posts:
