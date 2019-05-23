@@ -36,15 +36,16 @@ def profile(request):
 @login_required(login_url='/accounts/login/')
 def timeline(request):
     users = User.objects.all()
+    posts = Post.objects.all()
     follows = Following.objects.all()
     if request.method=='POST':
         follow_username = request.POST.get("follow")
         follow_user=User.objects.filter(username=follow_username).first()
-        following=Following(user=follow_user)
+        following=Following(user=follow_user,followed=request.user.username)
         following.save()
         return redirect('timeline')
     else:
-        return render(request, 'timeline.html',{"users":users,"follows":follows})
+        return render(request, 'timeline.html',{"users":users,"follows":follows,"posts":posts})
 
 @login_required(login_url='/accounts/login/')
 def edit_profile(request):

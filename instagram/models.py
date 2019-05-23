@@ -18,10 +18,9 @@ class Post(models.Model):
         return f'{self.profile.user.username}'
 
 class Following(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    status = models.BooleanField('status', default=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    followed = models.CharField(blank=True,max_length = 255)
 
     def __str__(self):
-        return f'{self.following.user.username}'
-
+        return f'{self.user.username}'
 
