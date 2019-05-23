@@ -38,11 +38,15 @@ def timeline(request):
     users = User.objects.all()
     posts = Post.objects.all()
     follows = Following.objects.all()
-    if request.method=='POST':
-        follow_username = request.POST.get("follow")
-        follow_user=User.objects.filter(username=follow_username).first()
-        following=Following(user=follow_user,followed=request.user.username)
+    if request.method=='POST' and 'follow' in request.POST:
+        following=Following(username=request.POST.get("follow"),followed=request.user.username)
         following.save()
+        return redirect('timeline')
+    elif request.method=='POST' and 'post' in request.POST:
+        posted=request.POST.get("post")
+        for post in posts:
+            if (post.id==posted):
+                print(post.id,posted)
         return redirect('timeline')
     else:
         return render(request, 'timeline.html',{"users":users,"follows":follows,"posts":posts})

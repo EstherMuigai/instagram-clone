@@ -9,7 +9,7 @@
                     <img src="{{user.profile.profile_pic.url}}" alt="" class="img-fluid" id="profilepic2">
                 </div>
                 <div class="col-md-7 col-sm-7">
-                    <h4 style="margin-top:7%;letter-spacing:5px;font:bold;font-size: 30px;">@{{user.username}}</h4>
+                    <h4 style="margin-top:15%;font:bold;font-size:20px;">@{{user.username}}</h4>
                 </div>
             </div>
             <div class="row" id="suggestions">
@@ -45,27 +45,52 @@
         <div class="col-md-8 col-sm-8" id="othersposts">
             {% for follow in follows %}
             {% if follow.followed == user.username %}
-            <div class="row" id="cardpost">
-                <div class="col-md-6 col-sm-6" style="padding: 0%;">
-                    <img src="" alt="" class="img-fluid">
-                </div>
-                <div class="col-md-6 col-sm-6">
-                    <div class="row" style=" padding:2%;">
-                        <div class="col-md-4 col-sm-4">
-                            <img src="{{follow.user.profile.profile_pic.url}}" alt="" class="img-fluid"
-                                id="profilepic3">
+                {% for post in posts %}
+                {% if post.profile.user.username == follow.username %}
+                <div class="row" id="cardpost">
+                        <div class="col-md-6 col-sm-6" style="padding: 0%;">
+                            <img src="{{post.pic.url}}" alt="" class="img-fluid">
                         </div>
-                        <div class="col-sm-3 col-md-3">
-                            <p style="font-size:15px;">@{{follow.user.username}}</p>
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <a href="" id="heart2"><i class="fas fa-heart"></i></a>
-                            <a href="" id="comment"><i class="fas fa-comment"></i></a>
-                            <a href="" id="ellipsis"><i class="fas fa-ellipsis-h"></i></a>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="row" style="padding:1%;border-bottom:solid 1px #007991;">
+                                <div class="col-md-3 col-sm-3">
+                                    <img src="{{post.profile.profile_pic.url}}" alt="" class="img-fluid"
+                                        id="profilepic3">
+                                </div>
+                                <div class="col-sm-2 col-md-2">
+                                    <p style="font-size:15px;">@{{follow.username}}</p>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-3">
+                                                <form action="{%url 'timeline' %}" method="post">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="post" value="{{post.id}}">
+                                                        <button class="btn btn-danger" id="heart2" type="submit"><i class="fas fa-heart"></i></button>
+                                                    </form>
+                                        </div>
+                                        <div class="col-md-4 col-sm-3">
+                                                <form action="{%url 'timeline' %}" method="post">
+                                                        {% csrf_token %}
+                                                        <button  id="comment" class="btn btn-info"><i class="fas fa-comment"></i></button>
+                                                    </form>
+                                        </div>
+                                        <div class="col-md-4 col-sm-3">
+                                                <form action="{%url 'timeline' %}" method="post">
+                                                        {% csrf_token %}
+                                                            <button id="ellipsis" class="btn btn-success"><i class="fas fa-ellipsis-h"></i></button>
+                                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="padding:2%;padding-left:5%;color:#007991" >
+                                <h4>{{post.caption}}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                {% endif %}
+                {% endfor %}
             {% endif %}
             {% endfor %}
         </div>
