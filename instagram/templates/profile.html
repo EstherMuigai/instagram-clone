@@ -14,7 +14,7 @@
         </div>
         <div class="col-sm-2 col-md-4">
             {% if user.profile.profile_pic.url %}
-            <img src="/media/images/{{user.profile.profile_pic}}" alt="" id="profilepic" class="img-fluid">
+            <img src="{{user.profile.profile_pic.url}}" alt="" id="profilepic" class="img-fluid">
             {% else %}
             <form  action="{%url 'profile' %}" method="post" enctype="multipart/form-data" style="margin-top:10%;">
                 {% csrf_token %}

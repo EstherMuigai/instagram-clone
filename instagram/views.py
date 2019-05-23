@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http  import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Profile,Post
+from .models import Profile,Post,Following
 from .forms import DetailsForm,PostForm
 
 def welcome(request):
@@ -36,7 +36,15 @@ def profile(request):
 @login_required(login_url='/accounts/login/')
 def timeline(request):
     users = User.objects.all()
-    return render(request, 'timeline.html',{"users":users})
+    follows = Following.objects.all()
+    if request.method=='POST':
+        follow_username = request.POST.get("follow")
+        follow_user=User.objects.filter(username=follow_username).first()
+        following=Following(user=follow_user)
+        following.save()
+        return redirect('timeline')
+    else:
+        return render(request, 'timeline.html',{"users":users,"follows":follows})
 
 @login_required(login_url='/accounts/login/')
 def edit_profile(request):
