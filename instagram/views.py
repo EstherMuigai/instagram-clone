@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Profile,Post,Following,Comment
 from .forms import DetailsForm,PostForm
+from django.db.models import F
 
 def welcome(request):
     return render(request, 'welcome.html')
@@ -50,9 +51,11 @@ def timeline(request):
     elif request.method=='POST' and 'comment' in request.POST:
         comment=Comment(comment=request.POST.get("comment"),
                         post=int(request.POST.get("posted")),
-                        username=request.POST.get("user"))
-        comment.count+=1
+                        username=request.POST.get("user"),
+                        count=0)
         comment.save()
+        comment.count=F('count')+1
+        return redirect('timeline')
     elif request.method=='POST' and 'post' in request.POST:
         posted=request.POST.get("post")
         for post in posts:
@@ -69,7 +72,11 @@ def edit_profile(request):
     if request.method == 'POST':
         form = DetailsForm(request.POST, request.FILES)
         if form.is_valid():
-                Profile.objects.filter(id=current_user.profile.id).update(profile_pic=form.cleaned_data["profile_pic"],bio=form.cleaned_data["bio"])
+                Profile.objects.filter(id=current_user.profile.id).update(bio=form.cleaned_data["bio"])
+                profile = Profile.objects.filter(id=current_user.profile.id).first()
+                profile.profile_pic.delete()
+                profile.profile_pic=form.cleaned_data["profile_pic"]
+                profile.save()
         return redirect('profile')
 
     else:
